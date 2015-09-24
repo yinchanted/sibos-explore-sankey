@@ -2,8 +2,8 @@
     window.appState = new State();
     var defaultState = {
         year: 2014,
-        question1: 6,
-        question2: 13,
+        question1: 16,
+        question2: 8,
         minLinkValue: 0,
         maxLinkValue: 2000,
         splitMultipleAnswers: true
