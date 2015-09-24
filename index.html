@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Sibos Data Crunching</title>
+
+    <!-- Loading Bootstrap -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="bootstrap/css/non-responsive.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="css/flat-ui.css" rel="stylesheet">
+
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <h1>Sibos Data Crunching</h1>
+
+    <p class="lead">visualized with Sankey diagrams</p>
+    </br>
+
+    <!-- <p>This visualization shows how answers from one question map to another question. It allows to find interesting correlations. To get started check out the "examples" section bellow.</p> -->
+
+    <div id="disabled-while-loading" class="disabled">
+        <div class="row">
+            <select id="questions-1" class="col-xs-6">
+                <option disabled selected value="-1">Select…</option>
+            </select>
+            <select id="questions-2" class="col-xs-6">
+                <option disabled selected value="-1">Select…</option>
+            </select>
+        </div>
+        <div id="chart"></div>
+    </br>        
+    </br>
+    </br>
+    </br>
+        <div class="row">
+            <div class="col-xs-6"><p>Don't show the graph with less than X attendance:</p></div>
+            <div class="col-xs-6">
+                <div id="slider" class="ui-slider">
+                    <div id="sliderValue"></div>
+                </div>
+            </div>
+        </div>
+        
+         <div class="row">
+            <div class="col-xs-6"><p>Don't show the graph with more than Y attendance:</p></div>
+            <div class="col-xs-6">
+                <div id="slider1" class="ui-slider">
+                    <div id="sliderValue1"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-xs-6"><p>Split multiple answers <small>(e.g. "Qunit;Mocha" -> "Qunit", "Mocha")</small>:</p></div>
+            <div class="col-xs-6">
+                <label class="checkbox" for="splitMultipleAnswers">
+                    <input type="checkbox" checked id="splitMultipleAnswers" data-toggle="checkbox">
+                </label>
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col-xs-6"><p>Use Sibos data from:</p></div>
+            <div class="col-xs-6">
+                <label class="radio">
+                    <input type="radio" name="surveyYear" value="2015" data-toggle="radio"> 2015 Sibos Session Scanning Data
+                </label>
+                <label class="radio">
+                    <input type="radio" name="surveyYear" value="2014" data-toggle="radio"> 2014 Sibos Session Scanning Data 
+                </label>
+                <label class="radio">
+                    <input type="radio" name="surveyYear" value="2013" data-toggle="radio"> 2015/2014 Sibos Session Scanning Data
+                </label> 
+            </div>
+        </div>
+
+<!--
+        <h3>Examples</h3>
+        <ul>
+            <li><a href="#2014/10/16/0/true">In general, what sessions have people attended?</a></li>
+            <li><a href="#2014/10/15/0/true">What sessions have "IT" attended?</a></li>
+            <li><a href="#2014/10/12/0/true">What sessions have "Staff" attended?</a></li>
+            <li><a href="#2014/5/10/0/true">Because of the parallel sessions, are people able to attend the sessions they wanted to?</a></li>
+            <li><a href="#2014/1/16/0/true">I just want to see results for one question. ie, what are people's first choices?</a></li>
+        </ul>
+    </div>
+-->
+    <h3>About</h3>
+
+    <p>This data visulization was made with <a href="http://d3js.org/">D3.js</a>, <a
+            href="http://bost.ocks.org/mike/sankey/">Sankey plugin</a>, <a href="http://getbootstrap.com/">Bootstrap</a>
+        and <a href="http://designmodo.github.io/Flat-UI/">Flat-UI</a> by <a href=""/>Yin Xu</a>.</p>
+
+   <!-- <p>Data comes from VTC TechDay Pre-Registration results as well as attendance collected on July 28th by <a href="http://dailyjs.com/">Yin Xu</a> (<a
+            href="http://dailyjs.com/2014/12/16/javascript-survey-results/">2015 VTC TechDay Stats</a>). Single choice questions are
+        marked with <code>[.]</code> and multiple choice questions with <code>[*]</code>.</p> -->
+
+    <!-- Github button
+    <iframe src="http://ghbtns.com/github-btn.html?user=kdzwinel&repo=dailyjs-survey-sankey-diagrams&type=watch&count=true"
+            allowtransparency="true" frameborder="0" scrolling="0" width="100" height="20"></iframe>
+
+    <!-- Twitter button 
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://kdzwinel.github.io/dailyjs-survey-sankey-diagrams/" data-via="kdzwinel">Tweet</a>
+
+    <!-- G+ button
+    <div class="g-plusone" data-size="medium" data-href="http://kdzwinel.github.io/dailyjs-survey-sankey-diagrams/"></div>
+
+    <!-- FB button
+    <div class="fb-like" data-href="http://kdzwinel.github.io/dailyjs-survey-sankey-diagrams/" data-layout="button_count" data-action="like"
+         data-show-faces="false" data-share="true"></div>
+    <div id="fb-root"></div>
+
+    <!-- Github ribbon
+    <a href="https://github.com/kdzwinel/dailyjs-survey-sankey-diagrams"><img style="position: absolute; top: 0; right: 0; border: 0;"
+                                                src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"
+                                                alt="Fork me on GitHub"></a>
+     -->
+</div>
+
+<script src="js/libs/jquery-1.8.3.min.js"></script>
+<script src="js/libs/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="js/libs/bootstrap.min.js"></script>
+<script src="js/libs/bootstrap-select.js"></script>
+<script src="js/libs/flatui-radio.js"></script>
+<script src="js/libs/flatui-checkbox.js"></script>
+
+<script src="js/libs/d3.min.js"></script>
+<script src="js/libs/sankey.js"></script>
+<script src="js/SurveyDataProvider.js"></script>
+<script src="js/SankeyDiagram.js"></script>
+<script src="js/State.js"></script>
+<script src="js/main.js"></script>
+
+<script>!function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+    if (!d.getElementById(id)) {
+        js = d.createElement(s);
+        js.id = id;
+        js.src = p + '://platform.twitter.com/widgets.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }
+}(document, 'script', 'twitter-wjs');</script>
+<script type="text/javascript">
+    (function () {
+        var po = document.createElement('script');
+        po.type = 'text/javascript';
+        po.async = true;
+        po.src = 'https://apis.google.com/js/platform.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(po, s);
+    })();
+</script>
+<script>(function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+</body>
+</html>
