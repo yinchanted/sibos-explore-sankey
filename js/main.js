@@ -16,7 +16,7 @@
             }
         },
         2013: {
-            location: './data/JavaScript%20Developer%20Survey%202013.csv',
+            location: './data/Sibos_2014_2015_mock.csv',
             settings: {
                 answerDelimiter: ';'
             }
