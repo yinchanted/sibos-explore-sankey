@@ -10,7 +10,7 @@
     };
     var dataFiles = {
         2015: {
-            location: './data/JavaScript%20Developer%20Survey%202014.csv',
+            location: './data/Sibos_2014.csv',
             settings: {
                 answerDelimiter: ', '
             }
