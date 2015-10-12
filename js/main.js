@@ -1,28 +1,28 @@
 (function () {
     window.appState = new State();
     var defaultState = {
-        year: 2014,
-        question1: 16,
-        question2: 8,
+        year: 2015,
+        question1: 11,
+        question2: 4,
         minLinkValue: 0,
         maxLinkValue: 2000,
         splitMultipleAnswers: true
     };
     var dataFiles = {
         2015: {
-            location: './data/Sibos_2014.csv',
+            location: './data/Sibos_2015_day1.csv',
             settings: {
                 answerDelimiter: ', '
             }
         },
         2013: {
-            location: './data/Sibos_2014_2015_mock.csv',
+            location: './data/Sibos_2015_day3.csv',
             settings: {
                 answerDelimiter: ';'
             }
         },
         2014: {
-            location: './data/Sibos_2014.csv',
+            location: './data/Sibos_2015_day2.csv',
             settings: {
                 answerDelimiter: ', '
             }
