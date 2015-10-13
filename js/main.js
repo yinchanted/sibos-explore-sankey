@@ -15,14 +15,26 @@
                 answerDelimiter: ', '
             }
         },
-        2013: {
-            location: './data/Sibos_2015_day3.csv',
+        2014: {
+            location: './data/Sibos_2015_day2.csv',
             settings: {
                 answerDelimiter: ';'
             }
         },
-        2014: {
-            location: './data/Sibos_2015_day2.csv',
+        2013: {
+            location: './data/Sibos_2015_day3.csv',
+            settings: {
+                answerDelimiter: ', '
+            }
+        },
+        2012: {
+            location: './data/Sibos_2015_day4.csv',
+            settings: {
+                answerDelimiter: ';'
+            }
+        },
+        2011: {
+            location: './data/Sibos_2015_day12.csv',
             settings: {
                 answerDelimiter: ', '
             }
