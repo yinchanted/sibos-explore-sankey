@@ -1,7 +1,7 @@
 (function () {
     window.appState = new State();
     var defaultState = {
-        year: 2013,
+        year: 2012,
         question1: 11,
         question2: 5,
         minLinkValue: 0,
@@ -34,7 +34,7 @@
             }
         },
         2011: {
-            location: './data/Sibos_2015_day123.csv',
+            location: './data/Sibos_2015_day1234.csv',
             settings: {
                 answerDelimiter: ', '
             }
